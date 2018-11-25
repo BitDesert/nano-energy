@@ -14,6 +14,24 @@
       </div>
     </div>
 
+    <div class="row mb-3">
+      <div class="col-4">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">{{watthours_all}} Wh</h5>
+                  <h6 class="card-subtitle text-muted">Energy Consumption</h6>
+              </div>
+          </div>
+      </div>
+      <div class="col-4">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">{{watthours_all / 1000}} kWh</h5>
+                  <h6 class="card-subtitle text-muted">Energy Consumption</h6>
+              </div>
+          </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -31,6 +49,13 @@ export default {
     return {
       blockCount: Number
     };
+  },
+  computed: {
+    // a computed getter
+    watthours_all: function () {
+      // `this` points to the vm instance
+      return this.blockCount * 0.0555
+    }
   },
   methods: {
     getBlockCount: function() {
